@@ -4,6 +4,5 @@
     "react-hook-form",
     "next/router",
     "next/dist",
-    "^lucide-react/dist/lucide-react.suffixed$",
   ]
 }
