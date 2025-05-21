@@ -1,5 +1,4 @@
 import { Loader2Icon } from "lucide-react";
-import { User } from "firebase/auth";
 import { Message } from "./Message";
 import { ClientMessage } from "@/types/message";
 
@@ -7,11 +6,9 @@ export function Messages({
   isMessageLoading,
   messages,
   messagesEndRef,
-  user,
 }: {
   isMessageLoading: boolean;
   messages: ClientMessage[];
-  user: User | null;
   messagesEndRef: React.RefObject<HTMLDivElement | null>;
 }) {
   return (

@@ -1,5 +1,5 @@
 import { authAdmin, firestoreAdmin, notAvailable } from "@/lib/firebase/server";
-import { ServerChatProfileData, ServerProfileData } from "@/types/profile";
+import { ServerChatProfileData } from "@/types/profile";
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request, { params }: { params: Promise<{ uid: string }> }) {

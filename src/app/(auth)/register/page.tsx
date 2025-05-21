@@ -41,9 +41,9 @@ export default function RegisterPage() {
         description: "You've successfully registered.",
       });
       router.push("/login");
-    } catch (error: any) {
+    } catch (error: unknown) {
       toast.error("Registration failed", {
-        description: error.message || "Something went wrong",
+        description: (error as Error).message || "Something went wrong",
       });
     } finally {
       setIsLoading(false);
@@ -61,9 +61,10 @@ export default function RegisterPage() {
         
         toast.success(`Signed in with ${provider} successfully!`);
         router.push("/dashboard");
-      } catch (error: any) {
+      } catch (error: unknown) {
+        console.error("Error signing in with provider:", error);
         toast.error("Sign in failed", {
-          description: error.message || "Something went wrong",
+          description: (error as Error).message || "Something went wrong",
         });
       } finally {
         setIsLoading(false);

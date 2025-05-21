@@ -134,7 +134,6 @@ export default function Dashboard() {
       <ScrollArea className="flex-1 pr-4">
         <Messages
           messages={messages}
-          user={user}
           messagesEndRef={messagesEndRef}
           isMessageLoading={isMessageLoading}
         />

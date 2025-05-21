@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useTitle } from "@/hooks/use-title";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function NotFound() {
   useTitle("404 - Page Not Found");
@@ -31,7 +31,7 @@ export default function NotFound() {
       <h1 className="text-4xl font-bold mb-2">404</h1>
       <h2 className="text-2xl font-medium mb-6">Page Not Found</h2>
       <p className="mb-8 max-w-md text-muted-foreground">
-        The page you're looking for doesn't exist or has been moved.
+        The page you&apos;re looking for doesn&apos;t exist or has been moved.
       </p>
       
       <div className="space-x-4">

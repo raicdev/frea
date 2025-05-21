@@ -103,7 +103,6 @@ export default function MessageSearch() {
             <ScrollArea className="flex-1 pr-4">
                 <Messages
                     messages={messages}
-                    user={user}
                     messagesEndRef={messagesEndRef}
                     isMessageLoading={isSearching}
                 />

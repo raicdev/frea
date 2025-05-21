@@ -100,7 +100,7 @@ export default function Home() {
             </div>
             <h3 className="text-xl font-semibold mb-2">Secure Messaging</h3>
             <p className="text-muted-foreground">
-              We don't store your messages. Your conversations are private and
+              We don&apos;t store your messages. Your conversations are private and
               secure.
             </p>
           </div>

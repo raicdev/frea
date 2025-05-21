@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { databaseAdmin, authAdmin } from "@/lib/firebase/server";
-import { randomUUID } from "crypto";
-import { ReplyMessage, Message } from "@/types/message";
+import { Message } from "@/types/message";
 
 export async function POST(
   request: Request,
@@ -40,7 +39,6 @@ export async function POST(
 
     // Verify the token
     const user = await authAdmin.verifyIdToken(token).catch(() => null);
-    const userData = await authAdmin.getUser(user?.uid || "").catch(() => null);
     if (!user) {
       return NextResponse.json(
         { success: false, error: "Unauthorized" },

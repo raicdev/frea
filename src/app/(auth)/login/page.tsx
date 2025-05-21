@@ -39,9 +39,9 @@ export default function SignInPage() {
       await signInWithEmailAndPassword(auth, email, password);
       toast.success("Signed in successfully!");
       router.push("/dashboard");
-    } catch (error: any) {
+    } catch (error: unknown) {
       toast.error("Sign in failed", {
-        description: error.message || "Invalid email or password",
+        description: (error as Error).message || "Invalid email or password",
       });
     } finally {
       setIsLoading(false);
@@ -59,9 +59,9 @@ export default function SignInPage() {
       
       toast.success(`Signed in with ${provider} successfully!`);
       router.push("/dashboard");
-    } catch (error: any) {
+    } catch (error: unknown) {
       toast.error("Sign in failed", {
-        description: error.message || "Something went wrong",
+        description: (error as Error).message || "Something went wrong",
       });
     } finally {
       setIsLoading(false);
@@ -138,7 +138,7 @@ export default function SignInPage() {
         </div>
 
         <div className="text-center text-sm">
-          Don't have an account?{" "}
+          Don&apos;t have an account?{" "}
           <Button
             variant="link"
             onClick={() => router.push("/register")}

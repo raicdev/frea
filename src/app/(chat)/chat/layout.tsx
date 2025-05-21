@@ -1,6 +1,5 @@
 import { ChatSidebar } from "@/components/chat/sidebar";
-import { DashboardSidebar } from "@/components/dashboard/sidebar";
-import { Sidebar, SidebarProvider } from "@/components/ui/sidebar";
+import { SidebarProvider } from "@/components/ui/sidebar";
 import { AuthProvider } from "@/context/AuthContext";
 
 export default function DashboardLayout({

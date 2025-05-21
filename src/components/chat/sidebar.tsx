@@ -18,14 +18,11 @@ import {
   ChartBarIcon,
   HomeIcon,
   Loader2Icon,
-  PaintbrushIcon,
   SearchIcon,
-  ShieldIcon,
   User2Icon,
 } from "lucide-react";
 import Image from "next/image";
 import { Badge } from "../ui/badge";
-import { Button } from "../ui/button";
 import Link from "next/link";
 
 export function ChatSidebar() {

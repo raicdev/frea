@@ -4,14 +4,19 @@ import {
   authAdmin,
   firestoreAdmin,
 } from "@/lib/firebase/server";
-import { randomUUID } from "crypto";
-import { ServerChatProfileData, ServerProfileData } from "@/types/profile";
-import { Message, ClientMessage, MessageFavorite } from "@/types/message";
-import { NextApiRequest } from "next";
+import { Message, MessageFavorite } from "@/types/message";
 import { addNotification } from "@/lib/notifications";
 
-export async function GET(request: Request) {
+export async function GET(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
+    const { id } = await params;
+    if (!id || typeof id !== "string") {
+      return NextResponse.json(
+        { error: "Invalid Request" },
+        { status: 400 }
+      );
+    }
+
     if (!databaseAdmin || !authAdmin || !firestoreAdmin) {
       return NextResponse.json(
         { error: "Auth server is currently unavailable" },
@@ -46,12 +51,15 @@ export async function GET(request: Request) {
 
     // Get messages from Firebase
     const messagesRef = databaseAdmin.ref("messages");
-    const snapshot = await messagesRef
-      .orderByChild("timestamp")
-      .limitToLast(100)
-      .once("value");
+    const messageData = (await messagesRef.get()).val() as Message;
+    if (!messageData) {
+      return NextResponse.json(
+        { success: false, error: "Message not found" },
+        { status: 404 }
+      );
+    }
 
-    return NextResponse.json({ success: true }, { status: 200 });
+    return NextResponse.json({ success: true, favorites: messageData.favorites }, { status: 200 });
   } catch (error) {
     console.error("Error fetching messages from Firebase:", error);
     return NextResponse.json(
@@ -70,7 +78,7 @@ export async function POST(
 
     if (!id || typeof id !== "string") {
       return NextResponse.json(
-        { error: "Invalid message format" },
+        { error: "Invalid Request" },
         { status: 400 }
       );
     }
@@ -107,7 +115,6 @@ export async function POST(
         { status: 401 }
       ); // Hide reason for security
     }
-    const userData = await authAdmin.getUser(user.uid).catch(() => null);
 
     // Push message to Firebase
     const messagesRef = databaseAdmin.ref(`messages/${id}`);

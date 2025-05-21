@@ -1,6 +1,5 @@
 import { Loader2Icon, ReplyIcon, Trash2Icon, VerifiedIcon } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { User } from "firebase/auth";
 import { Button } from "./ui/button";
 import { HeartIcon } from "lucide-react";
 import { ClientMessage, MessageFavorite } from "@/types/message";

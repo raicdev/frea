@@ -554,7 +554,7 @@ export default function Dashboard() {
                   
                   <div className="pt-4 border-t">
                     <p className="text-sm text-yellow-400 mb-4">
-                      Remember to save your profile with all changes (including embeds) by clicking the "Save" button at the top.
+                      Remember to save your profile with all changes (including embeds) by clicking the &quot;Save&quot; button at the top.
                     </p>
                     <Button
                       type="button"

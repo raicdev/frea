@@ -4,7 +4,7 @@ import {
   authAdmin,
   firestoreAdmin,
 } from "@/lib/firebase/server";
-import { ClientMessage, Message } from "@/types/message";
+import { ClientMessage } from "@/types/message";
 
 export async function GET(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {

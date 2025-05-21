@@ -11,7 +11,7 @@ interface AuthContextType {
   isLoading: boolean;
   auth: typeof auth;
   sendVerificationEmail: () => Promise<void>;
-  secureFetch: (url: string, options?: RequestInit) => Promise<any>;
+  secureFetch: (url: string, options?: RequestInit) => Promise<Response>;
 }
 
 const AuthContext = createContext<AuthContextType>({
@@ -45,7 +45,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const secureFetch = async (url: string, options: RequestInit = {}) => {
     if (!user) {
       console.error('User is not authenticated. Cannot perform fetch.');
-      return;
+      throw new Error('User is not authenticated');
     }
 
     const token = await user.getIdToken();

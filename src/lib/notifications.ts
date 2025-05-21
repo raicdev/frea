@@ -78,7 +78,7 @@ export async function addNotification(
     notification.senderId = notificationData.senderId;
   }
 
-  const docRef = await notificationsRef.doc(uuid).set(notification);
+  await notificationsRef.doc(uuid).set(notification);
   return notification.id;
 }
 

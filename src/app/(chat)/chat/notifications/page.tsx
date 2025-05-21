@@ -165,7 +165,7 @@ export default function NotificationsPage() {
 
       {notifications.length === 0 ? (
         <div className="text-center py-8 text-gray-500">
-          You don't have any notifications yet.
+          You don&apos;t have any notifications yet.
         </div>
       ) : (
         <div className="space-y-4">

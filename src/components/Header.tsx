@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input";
 import { SearchIcon, MenuIcon, XIcon, ChevronUpIcon } from "lucide-react";
 
 const Header: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const [showDocked, setShowDocked] = useState(true);
